@@ -24,9 +24,23 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+/// commands UI
+
 import produtosPage from "./page-objects/produtos.page";
 
 Cypress.Commands.add('adicionarProduto', (produto) => {
     produtosPage.selecionarProduto(produto.nome, produto.tamanho, produto.cor)
     produtosPage.addProdutoCarrinho()
+})
+
+/// commands API
+
+import cuponsApi from "./page-objects-api/cupons.api";
+
+Cypress.Commands.add('listarCupons', () => {
+    return cuponsApi.listarCupons()
+})
+
+Cypress.Commands.add('cadastrarCupons', (cupom) => {
+    return cuponsApi.cadastrarCupons(cupom)
 })

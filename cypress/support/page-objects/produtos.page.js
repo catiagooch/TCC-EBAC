@@ -8,7 +8,9 @@ class ProdutosPage {
 
     selecionarProduto(nome, tamanho, cor) {
 
-        cy.contains(nome).click()
+        cy.get('.product-block')
+        .contains(nome)
+        .click()
         cy.get('.button-variable-item-' + tamanho).click()
         cy.get('.button-variable-item-' + cor).click()
     }

@@ -1,0 +1,17 @@
+{
+    "body":{
+        "code": "Ganhe10",
+        "amount": "10",
+        "discount_type": "fixed_product",
+        "description": "cupom de teste"
+
+
+    },
+    
+    "cupomRepetido":{
+        "code": "Ganhe10",
+        "amount": "10",
+        "discount_type": "fixed_product",
+        "description": "cupom repetido"
+    }
+}
