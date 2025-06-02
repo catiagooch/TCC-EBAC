@@ -7,10 +7,23 @@ describe('API de Cupons', () => {
       })
     })
   
-    it.only('Cadastrar cupom com sucesso', () => {
-      cy.fixture('cupons').then((dados) => {
-        cy.cadastrarCupons(dados.novoCupom).then((response) => {
+    it('Cadastrar cupom dinâmico', () => {
+
+        const cupomDinamico = `Cupom${Date.now()}`;
+       
+        const novoCupom = {
+       
+         code: cupomDinamico,
+         amount: "10",
+         discount_type: "fixed_product",
+         description: "cupom gerado dinamicamente"
+       
+        };
+    it('Cadastrar cupom com sucesso', () => {
+      
+        cy.cadastrarCupons(novoCupom).then((response) => {
           expect(response.status).to.equal(200);
+          expect(response.body.code).to.equal(codigoDinamico);
           
         })
       })
@@ -24,5 +37,4 @@ describe('API de Cupons', () => {
         })
       })
     })
-  })
-  
+})
